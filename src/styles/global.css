@@ -1,0 +1,126 @@
+/* cores principais */
+:root {
+  /* Cinza Antracite */
+  --color-gray-900: #1e293b;   /* Muito escuro */
+  --color-gray-700: #334155;
+  --color-gray-500: #64748b;
+  --color-gray-300: #cbd5e1;
+  --color-gray-100: #f8fafc;
+
+  /* Vermelho Queimado */
+  --color-red-900: #7f1d1d;    /* Escuro - hover, active */
+  --color-red-600: #b91c1c;    /* Principal */
+  --color-red-400: #ef4444;
+  --color-red-200: #fecaca;
+
+  /* Laranja Quente */
+  --color-orange-900: #7c2d12; /* Escuro */
+  --color-orange-600: #ea580c; /* Principal */
+  --color-orange-400: #fb923c; /* Claro */
+  --color-orange-200: #fed7aa; /* Muito claro */
+
+  /* Aplicações principais */
+  --color-primary: var(--color-gray-900);
+  --color-primary-light: var(--color-gray-300);
+  --color-secondary: var(--color-red-600);
+  --color-secondary-light: var(--color-red-200);
+  --color-accent: var(--color-orange-600);
+  --color-accent-light: var(--color-orange-200);
+  --color-background: var(--color-gray-100);
+  --color-text-primary: var(--color-gray-700);
+  --color-text-secondary: var(--color-gray-500);
+  --color-border: var(--color-gray-300);
+}
+
+
+/* tipografia moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+p, span, a, li {
+  font-weight: 300;
+  color: var(--color-text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+/* para monoespaçado em code blocks ou detalhes */
+code, pre {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--color-primary-light);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* botão padrão */
+button {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:enabled {
+  background-color: var(--color-secondary);
+}
+
+button:disabled {
+  background-color: var(--color-border);
+  cursor: not-allowed;
+}
+
+/* scrollbar customizada para horizontal se precisar */
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-light);
+  border-radius: 10px;
+}
+
+/* utilitário para centralizar flex */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
