@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import bannerImg from './assets/2151536948.jpg';
+import bannerVideo from './assets/aberturapreta.mp4';
+import aboutGif from './assets/efect.gif';
 
 const sections = [
   { id: "home", title: "Home" },
@@ -67,66 +68,187 @@ const scrollCarousel = (direction) => {
       >
       {sections.map((sec) => (
  <section
-  key={sec.id}
+ key={sec.id}
   className="section"
   id={sec.id}
-  style={sec.id === 'home' ? {
-    backgroundImage: `url(${bannerImg})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  } : {}}
 >
   {sec.id === 'home' ? (
-    <div className="banner-text">
-      <h1>Bem-vinda ao Meu Site</h1>
-      <p>Explore nosso conteúdo incrível</p>
-    </div>
-) : sec.id === "about" ? (
-  <div className="about-section">
-    <div className="about-content">
-      <h2>Sobre o Studio Now</h2>
-      <p>
-        Fundado em 2018, o <strong>Studio Now</strong> nasceu com a missão de transformar ideias em experiências visuais impactantes.
-        Desde então, temos nos especializado em <em>marketing digital</em>, <em>design gráfico</em>, <em>experiências emocionais</em>
-        e soluções inovadoras para marcas que querem se destacar no mundo digital.
-      </p>
-      <p>
-        Criamos com propósito, emoção e estratégia. Nossa essência é colaborar com marcas que buscam conexão real com seu público.
-      </p>
-    </div>
-  </div>
+  <div className="home-section">
+    <video className="home-video" autoPlay muted loop>
+      <source src={bannerVideo} type="video/mp4" />
+      Seu navegador não suporta vídeos.
+    </video>
 
-    ) : sec.id === "services" ? (
+   <div className="banner-text">
+  <div className="banner-left">
+  <h1>
+    Welcome to <span className="vibe-text">VIBE Studio </span>
+  </h1>
+  <p>Where every idea turns into a <span className="experience-text">remarkable experience.</span></p>
+</div>
+  <div className="banner-right">
+    <h1 className="big-word" style={{ animationDelay: "2s" }}>VISION</h1>
+    <h1 className="big-word" style={{ animationDelay: "3s" }}>INNOVATION</h1>
+    <h1 className="big-word" style={{ animationDelay: "4s" }}>BRANDING</h1>
+    <h1 className="big-word" style={{ animationDelay: "5s" }}>EXPERIENCE</h1>
+  </div>
+</div>
+
+  </div>
+):sec.id === "about" ? (
+  <div className="about-section">
+    {/* Texto */}
+    <div className="about-content">
+      <h2>Sobre a VIBE Studio</h2>
+
+      {/* Palavras-chave */}
+      <div className="keywords">
+        <span className="keyword pink">Cores</span>
+        <span className="keyword blue">Formas</span>
+        <span className="keyword green">Efeitos</span>
+      </div>
+
+      <p>
+        Fundada em 2018, a <strong>VIBE Studio</strong> nasceu com a convicção de que cada ideia tem o potencial de se transformar em algo extraordinário. 
+        Desde o início, buscamos unir criatividade e estratégia para entregar resultados que vão além do visual, criando experiências que comunicam, conectam e inspiram.
+      </p>
+      <p>
+        Ao longo da nossa trajetória, consolidamos nossa expertise em <em>marketing digital</em>, <em>design gráfico</em>, 
+        <em> branding</em> e <em>soluções criativas</em> voltadas para empresas e profissionais que desejam fortalecer sua presença no mercado 
+        e estabelecer uma comunicação autêntica com seu público.
+      </p>
+      <p>
+        Nossa abordagem é pautada pela inovação, sensibilidade estética e foco em resultados. 
+        Mais do que desenvolver projetos, buscamos construir histórias junto aos nossos clientes, 
+        traduzindo seus valores em experiências capazes de gerar impacto real e duradouro.
+      </p>
+      <p>
+        Acreditamos que o futuro das marcas está na capacidade de criar vínculos genuínos. 
+        Por isso, cada projeto na <strong>VIBE Studio</strong> é desenvolvido com propósito, 
+        dedicação e o compromisso de entregar não apenas soluções criativas, mas também 
+        ferramentas estratégicas que fortalecem a identidade e ampliam o alcance das empresas no cenário digital.
+      </p>
+    </div>
+
+    {/* Imagem (GIF) */}
+  <div className="about-image">
+  <img src={aboutGif} alt="Equipe criativa da VIBE Studio" />
+</div>
+
+  </div>
+) 
+
+
+
+
+: sec.id === "services" ? (
   <div className="services-section">
     <h2>Nossos Serviços</h2>
     <div className="services-grid">
+
       <div className="service-card">
-        <h3>Marketing Digital</h3>
-        <p>Campanhas estratégicas, tráfego pago, branding e posicionamento digital.</p>
+        <div className="card-front">
+          <h3>Marketing Digital</h3>
+          <p>Campanhas estratégicas, tráfego pago, branding e posicionamento digital.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Estratégias avançadas de marketing digital orientadas por dados, análise de KPIs e otimização de ROI, 
+            com foco em segmentação e performance.
+          </p>
+        </div>
       </div>
+
       <div className="service-card">
-        <h3>Front-End Moderno</h3>
-        <p>Interfaces responsivas, acessíveis e otimizadas com tecnologias de ponta.</p>
+        <div className="card-front">
+          <h3>Front-End Moderno</h3>
+          <p>Interfaces responsivas, acessíveis e otimizadas com tecnologias de ponta.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Desenvolvimento com React, Next.js e Tailwind, priorizando UX/UI moderno, performance e acessibilidade.
+          </p>
+        </div>
       </div>
+
       <div className="service-card">
-        <h3>Design Gráfico</h3>
-        <p>Identidade visual, social media, impressos e layouts com impacto visual.</p>
+        <div className="card-front">
+          <h3>Design Gráfico</h3>
+          <p>Identidade visual, social media, impressos e layouts com impacto visual.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Criação de materiais gráficos estratégicos, branding consistente e soluções visuais impactantes.
+          </p>
+        </div>
       </div>
+
       <div className="service-card">
-        <h3>Design Emocional</h3>
-        <p>Projetos que criam conexão e experiência sensorial com o usuário.</p>
+        <div className="card-front">
+          <h3>Design Emocional</h3>
+          <p>Projetos que criam conexão e experiência sensorial com o usuário.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Experiências de design que estimulam emoção e percepção, aumentando engajamento e fidelidade.
+          </p>
+        </div>
       </div>
+
       <div className="service-card">
-        <h3>Neurodesign</h3>
-        <p>Design guiado pela psicologia e neurociência para aumentar conversão.</p>
+        <div className="card-front">
+          <h3>Neurodesign</h3>
+          <p>Design guiado pela psicologia e neurociência para aumentar conversão.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Aplicação de princípios da neurociência e psicologia cognitiva para otimizar interação, decisões e conversões.
+          </p>
+        </div>
       </div>
+
+      {/* Novos cards adicionados */}
+      <div className="service-card">
+        <div className="card-front">
+          <h3>UX Research</h3>
+          <p>Pesquisa e análise de comportamento do usuário para embasar decisões de design.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Testes de usabilidade, entrevistas e análise de jornada do usuário para criar experiências mais eficientes.
+          </p>
+        </div>
+      </div>
+
+      <div className="service-card">
+        <div className="card-front">
+          <h3>Branding Estratégico</h3>
+          <p>Definição de posicionamento, missão, valores e identidade visual da marca.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Desenvolvimento de guidelines, comunicação visual consistente e storytelling para fortalecer a marca.
+          </p>
+        </div>
+      </div>
+
+      <div className="service-card">
+        <div className="card-front">
+          <h3>Consultoria Digital</h3>
+          <p>Assessoria completa para otimização de processos e presença online.</p>
+        </div>
+        <div className="card-back">
+          <p>
+            Planejamento estratégico digital, análise de métricas e recomendações técnicas para crescimento sustentável.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
-) : sec.id === "portfolio" ? (
+)
+
+ : sec.id === "portfolio" ? (
   <div className="portfolio-section">
     <h2>Meus Projetos</h2>
     

@@ -1,39 +1,39 @@
+/* ===============================
+   PALETA PRINCIPAL: Azul #1594b3 e Rosa #b4266c
+=================================*/
+
 /* cores principais */
 :root {
-  /* Cinza Antracite */
-  --color-gray-900: #1e293b;   /* Muito escuro */
-  --color-gray-700: #334155;
-  --color-gray-500: #64748b;
-  --color-gray-300: #cbd5e1;
-  --color-gray-100: #f8fafc;
+  /* Azul Profundo / Verde Azul */
+  --color-blue-900: #0e2d3f;   /* Muito escuro */
+  --color-blue-700: #10587a;
+  --color-blue-500: #1594b3;   /* Principal */
+  --color-blue-300: #66c0d9;   /* Claro */
+  --color-blue-100: #e6f6fb;   /* Muito claro */
 
-  /* Vermelho Queimado */
-  --color-red-900: #7f1d1d;    /* Escuro - hover, active */
-  --color-red-600: #b91c1c;    /* Principal */
-  --color-red-400: #ef4444;
-  --color-red-200: #fecaca;
-
-  /* Laranja Quente */
-  --color-orange-900: #7c2d12; /* Escuro */
-  --color-orange-600: #ea580c; /* Principal */
-  --color-orange-400: #fb923c; /* Claro */
-  --color-orange-200: #fed7aa; /* Muito claro */
+  /* Rosa Vibrante */
+  --color-pink-900: #5a0f37;   /* Escuro */
+  --color-pink-700: #8a1a56;
+  --color-pink-500: #b4266c;   /* Principal */
+  --color-pink-300: #e48ab3;   /* Claro */
+  --color-pink-100: #f9d9e5;   /* Muito claro */
 
   /* Aplicações principais */
-  --color-primary: var(--color-gray-900);
-  --color-primary-light: var(--color-gray-300);
-  --color-secondary: var(--color-red-600);
-  --color-secondary-light: var(--color-red-200);
-  --color-accent: var(--color-orange-600);
-  --color-accent-light: var(--color-orange-200);
-  --color-background: var(--color-gray-100);
-  --color-text-primary: var(--color-gray-700);
-  --color-text-secondary: var(--color-gray-500);
-  --color-border: var(--color-gray-300);
+  --color-primary: var(--color-blue-500);       /* Azul principal */
+  --color-primary-light: var(--color-blue-300);
+  --color-secondary: var(--color-pink-500);    /* Rosa principal */
+  --color-secondary-light: var(--color-pink-100);
+  --color-accent: var(--color-pink-300);       /* destaque rosa claro */
+  --color-accent-light: var(--color-pink-100);
+  --color-background: var(--color-blue-100);   /* fundo suave */
+  --color-text-primary: var(--color-blue-900);
+  --color-text-secondary: var(--color-blue-700);
+  --color-border: var(--color-blue-300);
 }
 
-
-/* tipografia moderna */
+/* ===============================
+   TIPOGRAFIA MODERNA
+=================================*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora&display=swap');
