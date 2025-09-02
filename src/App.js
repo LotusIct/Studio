@@ -10,33 +10,6 @@ const sections = [
   { id: "contact", title: "Contato" },
 ];
 
-export default function App() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const isThrottled = useRef(false);
-
-  const onWheel = (e) => {
-    if (isThrottled.current) return;
-    isThrottled.current = true;
-
-    if (e.deltaY > 0) {
-      // Scroll pra baixo → próxima seção
-      setCurrentIndex((prev) => Math.min(prev + 1, sections.length - 1));
-    } else if (e.deltaY < 0) {
-      // Scroll pra cima → seção anterior
-      setCurrentIndex((prev) => Math.max(prev - 1, 0));
-    }
-
-    setTimeout(() => {
-      isThrottled.current = false;
-    }, 700); // espera 700ms para liberar o próximo scroll
-  };
-
-  useEffect(() => {
-    window.addEventListener("wheel", onWheel, { passive: true });
-    return () => window.removeEventListener("wheel", onWheel);
-  }, []);
-const carouselRef = useRef();
-
 const projects = [
   { title: "Projeto 1", description: "Descrição do projeto 1", image: "https://via.placeholder.com/300x200" },
   { title: "Projeto 2", description: "Descrição do projeto 2", image: "https://via.placeholder.com/300x200" },
@@ -50,12 +23,71 @@ const projects = [
   { title: "Projeto 10", description: "Descrição do projeto 10", image: "https://via.placeholder.com/300x200" },
 ];
 
-const scrollCarousel = (direction) => {
-  if (carouselRef.current) {
-    const scrollAmount = carouselRef.current.offsetWidth / 1.2;
-    carouselRef.current.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
-  }
-};
+export default function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isThrottled = useRef(false);
+
+  const carouselRef = useRef();
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
+
+  // Scroll desktop
+  const onWheel = (e) => {
+    if (isThrottled.current) return;
+    isThrottled.current = true;
+
+    if (e.deltaY > 0) {
+      setCurrentIndex((prev) => Math.min(prev + 1, sections.length - 1));
+    } else if (e.deltaY < 0) {
+      setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    }
+
+    setTimeout(() => { isThrottled.current = false; }, 700);
+  };
+
+  // Scroll mobile
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+  const handleTouchMove = (e) => {
+    touchEndY.current = e.touches[0].clientY;
+  };
+  const handleTouchEnd = () => {
+    if (isThrottled.current) return;
+    const deltaY = touchStartY.current - touchEndY.current;
+    if (Math.abs(deltaY) > 50) {
+      isThrottled.current = true;
+      if (deltaY > 0) {
+        setCurrentIndex((prev) => Math.min(prev + 1, sections.length - 1));
+      } else {
+        setCurrentIndex((prev) => Math.max(prev - 1, 0));
+      }
+      setTimeout(() => { isThrottled.current = false; }, 700);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, []);
+
+  // Carousel
+  const scrollCarousel = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = carouselRef.current.offsetWidth / 1.2;
+      carouselRef.current.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+    }
+  };
+
 
   return (
     <div className="app-container">
