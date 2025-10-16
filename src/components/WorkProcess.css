@@ -1,0 +1,132 @@
+.work-process {
+  position: relative;
+  padding: 6rem 2rem;
+  text-align: center;
+  color: #2b164a;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.808),
+      rgba(255, 255, 255, 0.95)
+    ),
+    url("../assets/fundovibe2.png"); /* fundo com esboços sutis */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Título */
+.work-process h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, #3a1f5c, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.work-process .intro-text {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  color: #4a3b67;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* Etapas */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Alterna imagem e texto */
+.process-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.process-step:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.step-image img {
+  width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.step-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.25);
+}
+
+.step-text {
+  max-width: 500px;
+  text-align: left;
+}
+
+.process-step:nth-child(even) .step-text {
+  text-align: left;
+}
+
+.step-text h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #3a1f5c;
+}
+
+.step-text p {
+  color: #4b3b67;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Citação final */
+.work-footer {
+  margin-top: 5rem;
+  background: linear-gradient(135deg, #fbe7f8, #f8dff6);
+  padding: 2.5rem;
+  border-radius: 24px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
+}
+
+.work-footer p {
+  color: #3a1f5c;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.signature {
+  display: block;
+  font-weight: 600;
+  color: #8b5cf6;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .process-step {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .process-step:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .step-text {
+    text-align: center !important;
+  }
+
+  .step-image img {
+    width: 90%;
+  }
+}

@@ -1,0 +1,146 @@
+/* ===== SEÇÃO PRINCIPAL ===== */
+.services-section {
+  background: linear-gradient(135deg, #e6f6fb, #f5fbfd);
+  padding: 5rem 2rem;
+  overflow: hidden;
+}
+
+/* ===== CONTAINER INTERNO ===== */
+.serviços {
+  text-align: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.services-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #7943C7, #1594b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== SLIDER ===== */
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  padding: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== CARD ===== */
+.service-card {
+  flex: 0 0 calc(33.333% - 1rem); /* mostra 3 por vez */
+  height: 260px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 4px solid #7943C7;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* animação de entrada */
+.service-card.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* efeito hover sutil */
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-top-color: #66c0d9;
+  box-shadow: 0 0 25px #5c319d80;
+}
+
+/* ===== CONTEÚDO DO CARD ===== */
+.card-content {
+  padding: 2rem 1.2rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #3A1F5C, #1594b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #2a2a2a;
+  line-height: 1.5;
+}
+
+/* ===== NAV BUTTONS ===== */
+.nav-button {
+  background: rgba(255, 255, 255, 0.85);
+  color: #5C319D;
+  border: 2px solid #5C319D;
+  border-radius: 50%;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-button:hover {
+  background: #1594b3;
+  color: white;
+  border-color: #1594b3;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Setas fora do container */
+.nav-button.left {
+  left: -3.5rem;
+}
+
+.nav-button.right {
+  right: -3.5rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 992px) {
+  .service-card {
+    flex: 0 0 calc(50% - 1rem); /* 2 por vez */
+  }
+}
+
+@media (max-width: 600px) {
+  .service-card {
+    flex: 0 0 85%; /* 1 por vez */
+  }
+
+  .nav-button.left {
+    left: -1.5rem;
+  }
+
+  .nav-button.right {
+    right: -1.5rem;
+  }
+}

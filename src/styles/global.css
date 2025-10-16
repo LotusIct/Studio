@@ -1,0 +1,278 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+:root {
+  /* Azul Profundo / Verde Azul */
+  --color-blue-900: #0e2d3f;   /* Muito escuro */
+  --color-blue-700: #10587a;
+  --color-blue-500: #1594b3;   /* Principal */
+  --color-blue-300: #66c0d9;   /* Claro */
+  --color-blue-100: #e6f6fb;   /* Muito claro */
+/* Roxo Nebulosa (Mistura de Azul e Rosa) */
+--color-purple-900: #3A1F5C;   /* Muito escuro, quase Índigo */
+--color-purple-700: #5C319D;
+--color-purple-500: #7943C7;   /* Principal, Roxo Vibrante Cósmico */
+--color-purple-300: #B594E8;   /* Claro */
+--color-purple-100: #F0E9FC;   /* Muito claro, quase branco */
+  /* Rosa Vibrante */
+  --color-pink-900: #41373c;   /* Escuro */
+  --color-pink-700: #8a1a56;
+  --color-pink-500: #b4266c;   /* Principal */
+  --color-pink-300: #e48ab3;   /* Claro */
+  --color-pink-100: #f9d9e5;   /* Muito claro */
+
+  /* Aplicações principais */
+  --color-primary: var(--color-blue-500);       /* Azul principal */
+  --color-primary-light: var(--color-blue-300);
+  --color-secondary: var(--color-pink-500);    /* Rosa principal */
+  --color-secondary-light: var(--color-pink-100);
+  --color-accent: var(--color-pink-300);       /* destaque rosa claro */
+  --color-accent-light: var(--color-pink-100);
+  --color-background: var(--color-blue-100);   /* fundo suave */
+  --color-text-primary: var(--color-blue-900);
+  --color-text-secondary: var(--color-blue-700);
+  --color-border: var(--color-blue-300);
+}
+/* Corpo da página */
+body, html, #root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Seções */
+section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8) saturate(110%);
+  transition: transform 8s ease, filter 1.5s ease;
+}
+
+/* Pequena animação de movimento para dar vida à imagem */
+.hero-image-container:hover .hero-image {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* Overlay de texto */
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: var(--text-on-color);
+  z-index: 2;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-overlay .vibe-text {
+  color: var(--text-accent-pink);
+}
+
+.hero-overlay p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease forwards 0.4s;
+}
+
+.hero-overlay .experience-text {
+  color: var(--text-accent-purple);
+}
+
+/* Animação de entrada suave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-overlay {
+    left: 5%;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+
+
+/* ContactSection */
+/* Contato - Seção Centralizada com Gradiente */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--color-blue-900), var(--color-purple-900), var(--color-pink-900));
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título da Seção */
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+.contact-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+/* Formulário */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 450px;
+  background: rgba(0, 0, 0, 0.4); /* fundo semitransparente */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Labels Flutuantes */
+.floating-label {
+  position: relative;
+}
+
+.floating-label input,
+.floating-label textarea {
+  width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.2s all;
+}
+
+.floating-label textarea {
+  min-height: 100px;
+}
+
+.floating-label label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.7);
+  font-size: 1.2rem;
+  pointer-events: none;
+  transition: 0.2s all;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 5px;
+  font-size: 0.85rem;
+  color: var(--color-secondary-light);
+}
+
+/* Botão */
+.contact-form button {
+  padding: 1rem;
+  background: var(--color-secondary);
+  color:var(--text-accent-purple);
+  font-weight: 400;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  word-spacing: 2px;
+  letter-spacing: 2px;
+  transition: 0.3s background;
+}
+
+.contact-form button:hover {
+  background: var(--color-pink-700);
+}
+
+/* Links Sociais */
+.social-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: 0.3s transform;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  color: var(--text-accent-pink);
+}
